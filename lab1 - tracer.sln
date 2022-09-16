@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracer.Core", "lab1 - tracer\Tracer.Core.csproj", "{B33F55AA-8E62-4B27-B5AC-C0F2F17C0FA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tracer", "lab1 - tracer\Tracer.csproj", "{B33F55AA-8E62-4B27-B5AC-C0F2F17C0FA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracer.Example", "Tracer.Example\Tracer.Example.csproj", "{3C07F5E5-E922-4AED-88E2-F0BAE4AD8827}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tracer.Example", "Tracer.Example\Tracer.Example.csproj", "{3C07F5E5-E922-4AED-88E2-F0BAE4AD8827}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

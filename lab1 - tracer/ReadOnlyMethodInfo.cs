@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace lab1Tracer.Core
+﻿namespace lab1Tracer.Core
 {
-    struct MethodInfo
+    public struct MethodInfo
     {
         public string Name;
         public string ClassName;
@@ -26,7 +20,7 @@ namespace lab1Tracer.Core
             Time += timeStop;
         }
     }
-    internal class ReadOnlyMethodInfo
+    public class ReadOnlyMethodInfo
     {
         public string Name { get; private set; }
         public string ClassName { get; private set; }
@@ -37,13 +31,12 @@ namespace lab1Tracer.Core
         {
             Name = methodInfo.Name;
             ClassName = methodInfo.ClassName;
-            Time = 0;
+            Time = methodInfo.Time;
 
             List<ReadOnlyMethodInfo> innerMethods = new List<ReadOnlyMethodInfo>();
             foreach (var childMethodInfo in methodInfo.ChildMethods)
             {
                 innerMethods.Add(new ReadOnlyMethodInfo(childMethodInfo));
-                Time += childMethodInfo.Time;
             }
             ChildMethods = innerMethods;
         }

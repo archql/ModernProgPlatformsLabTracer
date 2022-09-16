@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace lab1Tracer.Core
+﻿namespace lab1Tracer.Core
 {
-    internal class TraceResult
+    public class TraceResult
     {
         public IReadOnlyList<ReadOnlyThreadInfo> ThreadsInfo { get; }
 

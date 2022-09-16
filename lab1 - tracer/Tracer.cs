@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
+﻿using System.Collections.Concurrent;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lab1Tracer.Core
 {
-    internal class Tracer : ITracer
+    public class Tracer : ITracer
     {
         ConcurrentDictionary<int, ThreadInfo> ThreadsDictionary = new ConcurrentDictionary<int, ThreadInfo>();
 
@@ -55,6 +49,7 @@ namespace lab1Tracer.Core
             }
             var threadInfo = ThreadsDictionary[curThreadId];
             var methodInfo = threadInfo.RunningMethods.Pop();
+            methodInfo.StopMeasuring(threadInfo.StopWatch.ElapsedMilliseconds);
 
             MethodInfo topMethodInfo;
             if (threadInfo.RunningMethods.TryPeek(out topMethodInfo))
@@ -67,8 +62,6 @@ namespace lab1Tracer.Core
                 // were already at the top
                 threadInfo.ChildMethods.Add(methodInfo);
             }
-
-            methodInfo.StopMeasuring(threadInfo.StopWatch.ElapsedMilliseconds);
         }
     }
 }

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 
 namespace lab1Tracer.Core
 {
-    struct ThreadInfo
+    public struct ThreadInfo
     {
         public Stopwatch StopWatch = new Stopwatch();
         public Stack<MethodInfo> RunningMethods = new Stack<MethodInfo>();
@@ -17,18 +12,21 @@ namespace lab1Tracer.Core
             StopWatch.Start();
         }
     }
-    internal class ReadOnlyThreadInfo
+    public class ReadOnlyThreadInfo
     {
-        public int Id;
-        public long Time;
-        public IReadOnlyList<ReadOnlyMethodInfo> ChildMethods;
-        public ReadOnlyThreadInfo(int id, ThreadInfo threadInfo) {
+        public int Id { get; private set; }
+        public long Time { get; private set; }
+        public IReadOnlyList<ReadOnlyMethodInfo> ChildMethods { get; private set; }
+        public ReadOnlyThreadInfo(int id, ThreadInfo threadInfo) 
+        {
             Id = id;
+            Time = 0L;
 
             List<ReadOnlyMethodInfo> methods = new List<ReadOnlyMethodInfo>();
             foreach (var methodInfo in threadInfo.ChildMethods)
             {
                 methods.Add(new ReadOnlyMethodInfo(methodInfo));
+                Time += methodInfo.Time;
             }
             ChildMethods = methods;
         }
