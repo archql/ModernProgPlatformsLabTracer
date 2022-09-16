@@ -2,6 +2,7 @@
 {
     using lab1Tracer.Core;
     using lab1Tracer.Serialization.Abstractions;
+    using lab1Tracer.Serialization.Serializable;
     using System.IO;
     using System.Text.Json;
 
@@ -12,14 +13,8 @@
 
         public void Serialize(TraceResult traceResult, Stream to)
         {
-            List<ThreadInfo> threadsInfo = new List<ThreadInfo>();
-            foreach (var thread in traceResult.ThreadsInfo)
-            {
-               
-            }
-            
-
-            
+            JsonSerializer.Serialize(to, new SerializableTraceResult(traceResult), 
+                                         new JsonSerializerOptions () { WriteIndented = true });
         }
     }
 }
