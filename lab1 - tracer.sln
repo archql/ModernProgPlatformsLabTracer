@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tracer", "lab1 - tracer\Tra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tracer.Example", "Tracer.Example\Tracer.Example.csproj", "{3C07F5E5-E922-4AED-88E2-F0BAE4AD8827}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracer.Serialization.Abstractions", "Tracer.Serialization.Abstractions\Tracer.Serialization.Abstractions.csproj", "{CE9D7D24-2401-46C6-9F3A-2CF41808186D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracer.Serialization", "Tracer.Serialization\Tracer.Serialization.csproj", "{CE3D22E1-79BD-4C73-AAFE-7722044A1653}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{3C07F5E5-E922-4AED-88E2-F0BAE4AD8827}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C07F5E5-E922-4AED-88E2-F0BAE4AD8827}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C07F5E5-E922-4AED-88E2-F0BAE4AD8827}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE9D7D24-2401-46C6-9F3A-2CF41808186D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE9D7D24-2401-46C6-9F3A-2CF41808186D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE9D7D24-2401-46C6-9F3A-2CF41808186D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE9D7D24-2401-46C6-9F3A-2CF41808186D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE3D22E1-79BD-4C73-AAFE-7722044A1653}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE3D22E1-79BD-4C73-AAFE-7722044A1653}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE3D22E1-79BD-4C73-AAFE-7722044A1653}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE3D22E1-79BD-4C73-AAFE-7722044A1653}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

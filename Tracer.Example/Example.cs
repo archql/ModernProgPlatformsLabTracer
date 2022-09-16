@@ -1,7 +1,10 @@
 ﻿namespace lab1Tracer.Example
 {
 	using lab1Tracer.Core;
-	public class Example
+	using lab1Tracer.Serialization;
+    using lab1Tracer.Serialization.Abstractions;
+
+    public class Example
 	{
 		static void Main()
 		{
@@ -29,6 +32,9 @@
 
 			var traceResult = tracer.GetTraceResult();
 
+			List<ITraceResultSerializer> serializersList = new List<ITraceResultSerializer>();
+            Loader.LoadSerializersFromPath("plugins", ref serializersList);
+			//TraceResultSerializer.SerializeToFiles(serializers, traceResult, "notRes");
 		}
 	}
 
