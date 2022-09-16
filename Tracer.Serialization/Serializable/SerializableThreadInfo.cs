@@ -10,25 +10,30 @@ namespace lab1Tracer.Serialization.Serializable
         [JsonInclude, JsonPropertyName("thId")]
         public int Id;
 
-        [XmlAttribute("time")]
-        [JsonInclude, JsonPropertyName("time")]
+        [XmlAttribute("time(ms)")]
+        [JsonInclude, JsonPropertyName("time(ms)")]
 
         public long Time;
 
         [XmlElement("methods")]
         [JsonInclude, JsonPropertyName("methods")]
-        public List<SerializableMethodInfo> ChildMethods = new List<SerializableMethodInfo>();
+        public List<SerializableMethodInfo> ChildMethods;
 
         public SerializableThreadInfo(ReadOnlyThreadInfo threadInfo)
         {
+            ChildMethods = new List<SerializableMethodInfo>();
+
             Id = threadInfo.Id;
             Time = threadInfo.Time;
 
             foreach (var methodInfo in threadInfo.ChildMethods)
             {
                 ChildMethods.Add(new SerializableMethodInfo(methodInfo));
-                Time += methodInfo.Time;
             }
+        }
+        public SerializableThreadInfo()
+        {
+            ChildMethods = new List<SerializableMethodInfo>();
         }
     }
 }

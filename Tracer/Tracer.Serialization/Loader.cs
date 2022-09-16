@@ -13,7 +13,7 @@ namespace lab1Tracer.Serialization
                 return false; // failed to open dir
             }
 
-            var files = Directory.GetFiles("*.dll");
+            var files = Directory.GetFiles("*.dll", SearchOption.AllDirectories);
             if (files == null)
             {
                 return false; // failed to found any dll
@@ -30,8 +30,16 @@ namespace lab1Tracer.Serialization
         private static void LoadPluginFromAssembly(string Filename, ref List<ITraceResultSerializer> results)
         {
             Type pluginType = typeof(ITraceResultSerializer);
-
-            Assembly assembly = Assembly.LoadFrom(Filename);
+            Assembly assembly;
+            try
+            {
+                assembly = Assembly.LoadFrom(Filename);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+                
             if (assembly == null)
             {
                 return;

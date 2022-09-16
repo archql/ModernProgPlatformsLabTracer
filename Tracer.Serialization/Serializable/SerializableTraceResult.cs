@@ -9,14 +9,19 @@ namespace lab1Tracer.Serialization.Serializable
     {
         [XmlElement("ThreadsInfo")]
         [JsonInclude, JsonPropertyName("threads")]
-        public List<SerializableThreadInfo> ThreadsInfo = new List<SerializableThreadInfo>();
+        public List<SerializableThreadInfo> ThreadsInfo;
 
         public SerializableTraceResult(TraceResult traceResult)
         {
+            ThreadsInfo = new List<SerializableThreadInfo>();
             foreach (var thInfo in traceResult.ThreadsInfo)
             {
                 ThreadsInfo.Add(new SerializableThreadInfo(thInfo));
             }
+        }
+        public SerializableTraceResult()
+        {
+            ThreadsInfo = new List<SerializableThreadInfo>();
         }
     }
 }

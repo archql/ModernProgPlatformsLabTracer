@@ -14,8 +14,8 @@ namespace lab1Tracer.Serialization.Serializable
         [JsonInclude, JsonPropertyName("class")]
         public string ClassName;
 
-        [XmlAttribute("time")]
-        [JsonInclude, JsonPropertyName("time")]
+        [XmlAttribute("time(ms)")]
+        [JsonInclude, JsonPropertyName("time(ms)")]
         public long Time;
 
         [XmlElement("methods")]
@@ -31,6 +31,13 @@ namespace lab1Tracer.Serialization.Serializable
             {
                 ChildMethods.Add(new SerializableMethodInfo(childMethodInfo));
             }
+        }
+
+        public SerializableMethodInfo()
+        {
+            Name = "";
+            ClassName = "";
+            Time = 0;
         }
     }
 }

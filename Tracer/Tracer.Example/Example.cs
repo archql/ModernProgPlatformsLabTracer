@@ -33,8 +33,20 @@
 			var traceResult = tracer.GetTraceResult();
 
 			List<ITraceResultSerializer> serializersList = new List<ITraceResultSerializer>();
-            Loader.LoadSerializersFromPath("plugins", ref serializersList);
-			//TraceResultSerializer.SerializeToFiles(serializers, traceResult, "notRes");
+			if (Loader.LoadSerializersFromPath("plugins", ref serializersList)) // "../../../../../Tracer.Serialization/"
+			{
+				foreach (var serializer in serializersList)
+				{
+					using var file = new FileStream($"output.{serializer.Format}", FileMode.Create);
+					serializer.Serialize(traceResult, file);
+					Console.WriteLine($"Serialization done for {serializer.Format}");
+				}
+			}
+			else
+            {
+				Console.WriteLine("Everything is done, dlls is not found!");
+            }
+			Console.ReadLine();
 		}
 	}
 
