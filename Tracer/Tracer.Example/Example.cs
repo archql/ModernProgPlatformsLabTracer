@@ -12,17 +12,18 @@
 
 			var tracer = new Tracer();
 
-			var foo = new Foo(tracer);
 			var bar = new Bar(tracer);
-
+			var foo = new Foo(tracer);
+			// Act
 			var thread1 = new Thread(() =>
 			{
-				foo.MyMethod();
+				bar.InnerMethod();
 			});
 			thread1.Start();
 
 			var thread2 = new Thread(() =>
 			{
+				foo.MyMethod();
 				bar.InnerMethod();
 			});
 			thread2.Start();

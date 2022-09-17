@@ -137,3 +137,5 @@ _NCrunch*
 *.vsidx
 *.lock
 *.v1
+*.testlog
+*.manifest
